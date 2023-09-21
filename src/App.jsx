@@ -5,7 +5,7 @@ import Home from "./components/Home"
 
 function App() {
   return (
-    <div className='bg-slate-800'>
+    <div className='bg-slate-600'>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
