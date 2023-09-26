@@ -307,7 +307,7 @@ export default function Home() {
                 Countries
               </div>
               <a
-                href="hhttps://github.com/MiguelSc66/PI-Countries"
+                href="https://github.com/MiguelSc66/PI-Countries"
                 className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
               >
                 Enlace a más información
