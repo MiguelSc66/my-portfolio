@@ -11,97 +11,132 @@ import { BsLinkedin } from "react-icons/bs";
 import { AiFillGithub } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-scroll";
+import "./Home.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const copyEmailToClipboard = () => {
     const email = "miguel.scaccia1@gmail.com"; // Reemplaza con tu dirección de correo electrónico
     navigator.clipboard.writeText(email);
     toast("Se realizo una copia", {
       icon: "👍",
-      style: {
-        borderRadius: "10px",
-        background: "white",
-        color: "green",
-      },
+      className:"toastStyle",
+      position:"top-right"
     });
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center bg-slate-700 relative">
-      <nav className=" w-full h-[60px] flex justify-center items-center fixed top-0 left-0 right-0 shadow-lg bg-slate-800 py-2 z-10">
-        <div>
-          <ul className="flex space-x-52 font-semibold">
-            <li className="text-gray-400">
-              <Link
-                to="section1"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                activeClass="active"
-                className="cursor-pointer"
-              >
-                Inicio
-              </Link>
-            </li>
-            <li className="text-gray-400">
-              <Link
-                to="section2"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                activeClass="active"
-                className="cursor-pointer"
-              >
-                Sobre mí
-              </Link>
-            </li>
-            <li className="text-gray-400">
-              <Link
-                to="section3"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                activeClass="active"
-                className="cursor-pointer"
-              >
-                Habilidades
-              </Link>
-            </li>
-            <li className="text-gray-400">
-              <Link
-                to="section4"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                activeClass="active"
-                className="cursor-pointer"
-              >
-                Proyectos
-              </Link>
-            </li>
-            <li className="text-gray-400">
-              <Link
-                to="section5" // Reemplaza "section5" con el identificador correcto del footer
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                activeClass="active"
-                className="cursor-pointer"
-              >
-                Contacto
-              </Link>
-            </li>
-          </ul>
+    <div className="w-full h-full flex flex-col justify-center items-center bg-slate-600 relative">
+      <div className="flex">
+        <div className="flex justify-center items-center">
+          <nav className="fixed top-0 left-0 right-0 flex justify-center items-center h-16 w-[50vh] bg-black bg-opacity-70 rounded-full mx-auto mt-4 shadow-md backdrop-blur-md z-50">
+            <div>
+              <ul className="flex space-x-8 font-semibold text-white">
+                <li className="text-gray-300">
+                  <Link
+                    to="section1"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    activeClass="active"
+                    className="cursor-pointer nav-link"
+                  >
+                    Inicio
+                  </Link>
+                </li>
+                <li className="text-gray-300">
+                  <Link
+                    to="section2"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    activeClass="active"
+                    className="cursor-pointer nav-link"
+                  >
+                    Sobre mí
+                  </Link>
+                </li>
+                <li className="text-gray-300">
+                  <Link
+                    to="section3"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    activeClass="active"
+                    className="cursor-pointer nav-link"
+                  >
+                    Habilidades
+                  </Link>
+                </li>
+                <li className="text-gray-300 ">
+                  <Link
+                    to="section4"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    activeClass="active"
+                    className="cursor-pointer nav-link"
+                  >
+                    Proyectos
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </nav>
+        <div className="fixed top-0 right-0 mr-40 h-12 w-44 bg-black flex justify-center items-center mt-6 rounded-xl bg-opacity-70">
+          <div className="flex space-x-8">
+            <a
+              href="https://www.linkedin.com/in/miguel-ivan-scaccia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-500 transition-colors duration-300 text-3xl"
+            >
+              <BsLinkedin size={32} />
+            </a>
+            <a
+              href="https://github.com/MiguelSc66"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors duration-300 text-3xl"
+            >
+              <AiFillGithub size={32} />
+            </a>
+            <button
+              onClick={copyEmailToClipboard}
+              className="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl"
+            >
+              <BiLogoGmail size={32} />
+            </button>
+          </div>
+          <Toaster />
+        </div>
+      </div>
       <div
         id="section1"
-        className="w-[130vh] min-h-[40vh] mt-[33vh] relative justify-center items-center bg-slate-800 shadow-lg shadow-black  rounded-lg "
+        className={`w-[130vh] min-h-[40vh] mt-[33vh] relative justify-center items-center bg-slate-800 shadow-lg shadow-black rounded-lg`}
       >
         <p className="text-[24px] font-semibold text-red-700 mx-4">
           Bienvenido, mi nombre es
@@ -124,7 +159,9 @@ export default function Home() {
       </div>
       <div
         id="section2"
-        className="w-[130vh] min-h-[40vh] mt-[50vh] shadow-lg bg-slate-800 shadow-black relative"
+        className={`w-[130vh] min-h-[40vh] mt-[50vh] shadow-lg bg-slate-800 shadow-black relative ${
+          isScrolled ? 'transition-style="in:square:center"' : ""
+        }`}
       >
         <h2 className="text-4xl font-semibold text-red-700 mt-6 mx-4">
           Sobre mí
@@ -285,10 +322,11 @@ export default function Home() {
                 Enlace a más información
               </a>
               <p className="mt-2 text-gray-500 text-[15px]">
-                Proyecto grupal que consiste en un E-commerce de
-                Vinilos, consistió en la creación de una plataforma dedicada a la compra,
-                venta de vinilos musicales. Conectamos a amantes de la música y coleccionistas en un espacio donde pueden descubrir
-                y adquirir vinilos de alta calidad.
+                Proyecto grupal que consiste en un E-commerce de Vinilos,
+                consistió en la creación de una plataforma dedicada a la compra,
+                venta de vinilos musicales. Conectamos a amantes de la música y
+                coleccionistas en un espacio donde pueden descubrir y adquirir
+                vinilos de alta calidad.
               </p>
             </div>
           </div>
@@ -321,42 +359,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <footer id="section5" className="w-full bg-slate-800 text-gray-400 py-12">
-        <div className="container mx-auto flex flex-col items-center justify-center">
-          <div className="text-xl font-semibold text-center">
-            <p className="text-[40px]">Miguel Scaccia</p>
-            <br />
-            <p className="text-lg">Desarrollador Full Stack</p>
-            <br />
-            <p>Redes</p>
-          </div>
-          <div className="flex space-x-8 mt-6">
-            <a
-              href="https://www.linkedin.com/in/miguel-ivan-scaccia/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-colors duration-300 text-3xl"
-            >
-              <BsLinkedin size={32} />
-            </a>
-            <a
-              href="https://github.com/MiguelSc66"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-colors duration-300 text-3xl"
-            >
-              <AiFillGithub size={32} />
-            </a>
-            <button
-              onClick={copyEmailToClipboard}
-              className="text-gray-400 hover:text-blue-500 transition-colors duration-300 text-3xl"
-            >
-              <BiLogoGmail size={32} />
-            </button>
-          </div>
-        </div>
-        <Toaster />
-      </footer>
     </div>
   );
 }

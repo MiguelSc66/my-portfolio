@@ -9,8 +9,17 @@ export default {
     autoprefixer: {},
   },
   theme: {
-    extend: {},
+    extend: {
+      toastStyle: {
+        base: 'border-radius-10 bg-white text-green-600',
+      },
+    },
   },
   plugins: [],
+  variants: {
+    extend: {
+      animation: ["hover", "focus", "group-hover"],
+    },
+  },
 }
 
