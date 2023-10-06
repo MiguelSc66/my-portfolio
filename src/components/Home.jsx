@@ -15,6 +15,8 @@ import "./Home.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
+
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -106,8 +108,8 @@ export default function Home() {
             </div>
           </nav>
         </div>
-        <div className="fixed top-0 right-0 mr-40 h-12 w-44 bg-black flex justify-center items-center mt-6 rounded-xl bg-opacity-70">
-          <div className="flex space-x-8">
+        <div className="fixed top-0 right-0 mr-40 h-12 w-44 bg-black flex justify-center items-center mt-6 rounded-xl bg-opacity-70 z-50">
+          <div className="flex space-x-8 md:space-x-8 ">
             <a
               href="https://www.linkedin.com/in/miguel-ivan-scaccia/"
               target="_blank"
@@ -122,7 +124,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-300 text-3xl"
             >
-              <AiFillGithub size={32} />
+              <AiFillGithub size={32}  />
             </a>
             <button
               onClick={copyEmailToClipboard}
