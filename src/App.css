@@ -6,11 +6,7 @@
 }
 
 body {
-  background: linear-gradient(
-    to right,
-    rgba(133, 133, 133, 0.95),
-    rgba(242, 243, 252, 0.95)
-  );
+  background: #0F172A
 }
 
 @keyframes heartBeat {
