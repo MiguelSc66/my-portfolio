@@ -19,8 +19,25 @@ import { useEffect } from "react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
+  const updateHtmlClass = (darkMode) => {
+    const htmlElement = document.documentElement;
+    if (darkMode) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  };
+
+  
   useEffect(() => {
+    const storedDarkMode = localStorage.getItem("darkMode");
+    if (storedDarkMode) {
+      setDarkMode(storedDarkMode === "true"); // Convierte el valor a booleano.
+      updateHtmlClass(storedDarkMode === "true");
+    }
+    
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setIsScrolled(true);
@@ -48,7 +65,7 @@ export default function Home() {
   return (
     <html className="bg-slate-900">
 
-      <div className="w-auto min-h-full flex flex-col justify-center items-center bg-slate-900 relative">
+      <div className="w-auto min-h-full flex flex-col justify-center items-center bg- relative">
         <div className="flex">
           <div className="flex justify-center items-center">
             <nav className="fixed top-0 left-0 right-0 flex justify-center items-center h-16 w-[50vh] bg-black bg-opacity-70 rounded-full mx-auto mt-4 shadow-md backdrop-blur-md z-50">
