@@ -159,7 +159,7 @@ export default function Home() {
           id="section1"
           className={`w-[130vh] min-h-[40vh] mt-[30vh] relative bg-slate-700 shadow-lg shadow-black rounded-lg`}
         >
-          <p className=" text-2xl font-semibold text-red-700 mx-4">
+          <p className=" text-2xl font-semibold text-red-600 mx-4">
             Bienvenido, mi nombre es
           </p>
           <h1 className="text-7xl font-semibold text-gray-400 mx-4">
@@ -184,7 +184,7 @@ export default function Home() {
             isScrolled ? 'transition-style="in:square:center"' : ""
           }`}
         >
-          <h2 className="text-4xl font-semibold text-red-700 mt-6 mx-4">
+          <h2 className="text-4xl font-semibold text-white mt-6 mx-4">
             Sobre mí
           </h2>
           <div className="overflow-y-auto max-h-[30vh] mt-[45px] mx-4">
@@ -207,7 +207,7 @@ export default function Home() {
           id="section3"
           className="w-[130vh] min-h-[40vh] mt-[20vh] bg-slate-700 shadow-lg shadow-black relative rounded-lg"
         >
-          <h2 className="text-4xl flex font-semibold text-red-700 mt-6 mx-4 justify-center">
+          <h2 className="text-4xl flex font-semibold text-white mt-6 mx-4 justify-center">
             Habilidades
           </h2>
           <div className="flex flex-wrap justify-center mt-6">
@@ -320,7 +320,7 @@ export default function Home() {
           id="section4"
           className="w-[130vh] min-h-[70vh] mt-[40vh] bg-slate-700 shadow-lg mb-[30vh] shadow-black relative rounded-lg"
         >
-          <p className="flex text-4xl text-red-700 font-semibold justify-center">
+          <p className="flex text-4xl text-white font-semibold justify-center">
             Proyectos
           </p>
           <div className="max-w-md  h-[23vh] mx-auto flex flex-col bg-white rounded-xl shadow-md mt-8 overflow-hidden md:max-w-2xl">
