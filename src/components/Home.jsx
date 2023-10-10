@@ -15,8 +15,6 @@ import "./Home.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
-
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -30,14 +28,13 @@ export default function Home() {
     }
   };
 
-  
   useEffect(() => {
     const storedDarkMode = localStorage.getItem("darkMode");
     if (storedDarkMode) {
       setDarkMode(storedDarkMode === "true"); // Convierte el valor a booleano.
       updateHtmlClass(storedDarkMode === "true");
     }
-    
+
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setIsScrolled(true);
@@ -57,14 +54,13 @@ export default function Home() {
     navigator.clipboard.writeText(email);
     toast("Se realizo una copia", {
       icon: "👍",
-      className:"toastStyle",
-      position:"top-right"
+      className: "toastStyle",
+      position: "top-right",
     });
   };
 
   return (
     <html className="bg-slate-900">
-
       <div className="w-auto min-h-full flex flex-col justify-center items-center bg- relative">
         <div className="flex">
           <div className="flex justify-center items-center">
@@ -143,7 +139,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-300 text-3xl"
               >
-                <AiFillGithub size={32}  />
+                <AiFillGithub size={32} />
               </a>
               <button
                 onClick={copyEmailToClipboard}
@@ -157,48 +153,51 @@ export default function Home() {
         </div>
         <div
           id="section1"
-          className={`w-[130vh] min-h-[40vh] mt-[30vh] relative bg-slate-700 shadow-lg shadow-black rounded-lg`}
+          class="w-[50vh] min-h-[60vh] mt-[30vh] relative bg-slate-700 shadow-lg shadow-black rounded-lg flex flex-col items-center justify-center"
         >
-          <p className=" text-2xl font-semibold text-red-600 mx-4">
-            Bienvenido, mi nombre es
-          </p>
-          <h1 className="text-7xl font-semibold text-gray-400 mx-4">
-            Miguel Scaccia
+          <h4 className=" mr-40 text-gray-300">¡Hola! Soy Miguel Scaccia, soy</h4>
+          <h1 class="text-3xl font-semibold text-white text-center mb-10">
+            Desarrollador Full Stack
           </h1>
-          <h1 className="text-7xl  font-semibold text-yellow-700 mx-4">
-            Soy desarrollador Full Stack
-          </h1>
-          <div className="mt-4">
-            <p className="text-gray-400 text-lg mx-4">
-              ¡Hola! Soy Miguel Iván Scaccia, un apasionado desarrollador web con
-              una profunda afinidad por la tecnología y la programación. <br />
-              Mi personalidad introvertida coexiste con un espíritu amigable y
-              sociable, lo que me permite conectarme con personas de diversas{" "}
-              <br /> perspectivas y trabajar eficazmente en equipo.
-            </p>
+          <div class=" rounded-lg border border-black ">
+            <img
+              src="https://res.cloudinary.com/duclhjrri/image/upload/v1695222816/miguel_bhprti.jpg"
+              alt="img"
+              class="w-[20vh] h-auto mx-auto rounded-lg"
+            />
+          </div>
+          <h2 className="text-lg mr-80 text-white">Detalles</h2>
+          <div class="mt-2 mr-8 ml-8 text-gray-300 text-md  text-center ">
+            <ul className=" list-disc">
+              <li className="mr-20">
+                Diseño de interfaces llamativas en el frontend y construyo bases solidas en el backend.
+              </li>
+              <li className="mr-20 mt-8">
+                Estoy muy comprometido con el avance de mi conocimiento y crecer profesionalmente.
+              </li>
+            </ul>
           </div>
         </div>
         <div
           id="section2"
-          className={`w-[130vh] min-h-[40vh] mt-[50vh] shadow-lg bg-slate-700 shadow-black relative rounded-lg ${
-            isScrolled ? 'transition-style="in:square:center"' : ""
-          }`}
+          className="w-[130vh] min-h-[40vh] mt-[50vh] shadow-lg bg-slate-700 shadow-black relative rounded-lg "
         >
           <h2 className="text-4xl font-semibold text-white mt-6 mx-4">
             Sobre mí
           </h2>
           <div className="overflow-y-auto max-h-[30vh] mt-[45px] mx-4">
             <p className="text-gray-400 font-semibold text-[20px]">
-              Mi interés por el mundo tech comenzó cuando era niño. Jugaba mucho a
-              los videojuegos y le dedicaba una buena parte de mi tiempo libre.
+              Mi interés por el mundo tech comenzó cuando era niño. Jugaba mucho
+              a los videojuegos y le dedicaba una buena parte de mi tiempo
+              libre.
               <br />
               A medida que pasaba el tiempo, comencé a interesarme por varias
               tecnologías, como el funcionamiento de una computadora, cómo
               funciona y se desarrolla una web, y también las aplicaciones. Este
               interés cambió mi forma de pensar y ver las cosas cotidianas de
               manera diferente. <br />
-              Actualmente, estoy avanzando por este largo camino, adquiriendo todo
-              tipo de tecnología e información nueva que pueda aumentar mi
+              Actualmente, estoy avanzando por este largo camino, adquiriendo
+              todo tipo de tecnología e información nueva que pueda aumentar mi
               conocimiento y fortalecer mis habilidades.
             </p>
           </div>
@@ -344,10 +343,10 @@ export default function Home() {
                 </a>
                 <p className="mt-2 text-gray-500 text-[15px]">
                   Proyecto grupal que consiste en un E-commerce de Vinilos,
-                  consistió en la creación de una plataforma dedicada a la compra,
-                  venta de vinilos musicales. Conectamos a amantes de la música y
-                  coleccionistas en un espacio donde pueden descubrir y adquirir
-                  vinilos de alta calidad.
+                  consistió en la creación de una plataforma dedicada a la
+                  compra, venta de vinilos musicales. Conectamos a amantes de la
+                  música y coleccionistas en un espacio donde pueden descubrir y
+                  adquirir vinilos de alta calidad.
                 </p>
               </div>
             </div>
@@ -372,9 +371,9 @@ export default function Home() {
                   Enlace a más información
                 </a>
                 <p className="mt-2 text-gray-500 text-[15px]">
-                  Web para registar actividades para realizar en distintos paises
-                  del mundo, vas designando actividades a los paises que vas a
-                  vistiar.
+                  Web para registar actividades para realizar en distintos
+                  paises del mundo, vas designando actividades a los paises que
+                  vas a vistiar.
                 </p>
               </div>
             </div>
